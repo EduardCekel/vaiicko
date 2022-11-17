@@ -1,21 +1,41 @@
 <?php /** @var Array $data */ ?>
-<div class="row">
-    <div class="col">
-        <h3>Fakulta riadenia a informatiky</h3>
-        <strong>Adresa</strong>: Univerzitná 8215/1, 010 26 Žilina<br>
-        <strong>Tel. číslo</strong>: +421/41 513 4121<br>
-
-        <strong>GPS</strong>: 49°12'6,4"N 18°45'42,6"E
+<div class = "uvodKontakt">
+    <div class="container">
+    <h1>Kontakt</h1>
+      <hr>
     </div>
+</div> 
+<div class = "container">  
+    <p><b>Adresa:</b> Zimná 94, 052 01 Spišská Nová Ves</p>
+    <p><b>Informácie:</b> (+421)53/44 240 71</p>
+    <p><b>Obchodný úsek:</b> (+421)905 928 337</p>
+    <p><b>Výrobný úsek:</b> (+421)915 965 709</p>
+    <p><b>Fax:</b> (+421)53/44 652 45</p>
+    <p><b>E-mail:</b> zdruzena@zdruzena.sk</p>
 </div>
-<div class="row mt-3">
-    <div class="col">
-        <iframe width="100%" height="300"
-                src="https://www.openstreetmap.org/export/embed.html?bbox=18.747396469116214%2C49.193792384417996%2C18.776578903198246%2C49.210336337994846&amp;layer=mapnik&amp;marker=49.202065053033984%2C18.761987686157227"></iframe>
+<div class = "container">
+<a href="?delete=" class="btn btn-danger">Vymaz</a>
+    <h3>Kontaktný formulár</h3> 
+    <form method="post">
+      <label for="fname">Meno a priezvisko*</label><br>
+      <input type="text" name="fname" value="meno priezvisko"><br>
+      <label for="fname">E-mail*</label><br>
+      <input type="text" name="femail" value="e-mail"><br><br>
+      <label for="fname">Správa/požiadavka*</label><br>
+      <input type="text" name="ftext"><br><br>
+      <input type="submit" value="Odoslať">
+    </form>  
+</div>  
+  <footer>
+    <div class="container">
+        <ul>
+        <li>Združená výrobné družstvo</li>
+        <li>Zimná 94</li>
+        <li>052 01 Spišská Nová Ves</li>
+        <li>Informácie: (+421) 53/44 240 71</li>
+        <li>E-mail: zdruzena@zdruzena.sk</li>
+      </ul>
     </div>
-</div>
-<div class="row mt-3">
-    <div class="col">
-        <a href="?c=home">Späť na hlavnú stránku</a>
-    </div>
-</div>
+  <!--<a href="https://www.facebook.com/" target="_blank"><img src="img/Facebook-logo.png" alt="logoFB"></a>-->
+<div class="copyright">Združena <i class="fa fa-copyright"> 2022</i></div>
+  </footer>

@@ -1,0 +1,55 @@
+div.uvodK {
+    background-color: rgb(10, 149, 95);
+    color: whitesmoke;
+}
+
+div.uvodK h1 {
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 35px;
+    display: block;
+    padding-bottom: 20px;
+    text-shadow: 2px 2px 3px black;
+}
+
+div.uvodK {
+    padding-bottom: 40px;
+}
+
+div.uvodK h2, h3 {
+    font-size: 20px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+div.uvodK h2
+{
+    font-size: 25px;
+}
+
+
+div.uvodK ul {
+    font-size: 15px;
+    padding-left: 60px;
+    width: 50%;
+    margin-top: 2%;
+}
+
+div.galeria {
+    text-align: center;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+div.galeria img {
+    width: 13%;
+    height: auto;
+    border: 1px solid black;
+    margin: 3px;
+    padding: 3px;
+}
+
+div img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

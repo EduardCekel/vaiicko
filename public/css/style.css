@@ -1,0 +1,113 @@
+body {
+    font-family: Arial;
+}
+/* Hlavicka stránky */
+header p {
+    margin: 0;
+    padding: 7px;
+    padding-left: 15px;
+    background-color: rgb(10, 149, 95);
+    color: whitesmoke;
+    font-size: 12px;
+}
+nav {
+    background-color: white;
+}
+
+nav ul li a img{
+    width: 150px;
+    height: auto;
+}
+
+nav ul {
+    padding: 0px;
+    margin: 0px
+}
+
+nav ul li {
+    text-align: center;
+    font-size: 20px;
+}
+
+/* telo stránky */
+
+div.uvod  {
+    background-color: rgb(10, 149, 95);
+    color: whitesmoke;
+    display: flex;
+}
+
+div.uvod div h1 {
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 30px;
+    display: block;
+    padding-bottom: 20px;
+    text-align: left;
+    text-shadow: 2px 2px 3px black;
+    width: 100%;
+}
+
+div.uvod {
+    padding-bottom: 40px;
+}
+
+div.uvod div h3 {
+    font-size: 20px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+
+div.uvod div ul {
+    font-size: 15px;
+    padding-left: 60px;
+    float: left;
+    width: 50%;
+    margin-top: 2%;
+}
+
+div.uvod img {
+    width: 23%;
+    height: auto;
+    box-shadow: 2px 4px 10px black;
+}
+
+p.onas {
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Philosopher', sans-serif;
+    color: grey;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 0px;
+}
+
+h1.onas {
+ font-size: 30px;
+ font-style: italic;
+}
+
+/* päta */
+
+footer {
+    background-color: rgb(10, 149, 95);
+    color:whitesmoke;
+}
+
+footer div ul {
+    padding-top: 2%;
+    padding-left: 60px;
+    width: 50%;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+footer div.copyright {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: rgb(5, 79, 51);
+    padding-left: 60px;
+    font-size: 10px;
+    text-align: center;
+}

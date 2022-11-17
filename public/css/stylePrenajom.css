@@ -1,0 +1,43 @@
+main  div.uvodP {
+    background-color: rgb(10, 149, 95);
+    color: whitesmoke;
+}
+
+main div.uvodP h1 {
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 35px;
+    display: block;
+    padding-bottom: 20px;
+    text-shadow: 2px 2px 3px black;
+}
+
+main div.uvodP {
+    padding-bottom: 40px;
+}
+
+main div.uvodP h2 {
+    font-size: 25px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+div.galeria {
+    text-align: center;
+    padding-bottom: 50px;
+    padding-top: 25px;
+}
+
+img.prvyRiadok {
+    width: 50%;
+}
+
+div.riadok img{
+    width: 25%;
+    padding: 2px;
+}
+
+div img:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

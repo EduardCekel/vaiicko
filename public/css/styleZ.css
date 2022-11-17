@@ -1,0 +1,38 @@
+main  div.uvodZ {
+    background-color: rgb(10, 149, 95);
+    color: whitesmoke;
+}
+
+main div.uvodZ h1 {
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 35px;
+    display: block;
+    padding-bottom: 20px;
+    text-shadow: 2px 2px 3px black;
+}
+
+main div.uvodZ {
+    padding-bottom: 40px;
+}
+
+main div.spodna {
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+main div.uvodZ p {
+    font-size: 17px;
+    padding-left: 20px;
+    width: 100%;
+}
+
+main div div.spodok {
+    width: 50%;
+    float: left;
+}
+
+main div img {
+    width: 20%;
+    height: auto;
+}

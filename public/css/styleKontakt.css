@@ -1,0 +1,18 @@
+main {
+    padding-bottom: 50px;
+}
+
+div.uvodKontakt {
+    background-color: rgb(10, 149, 95);
+    color: whitesmoke;
+    padding-bottom:25px;
+}
+
+div.uvodKontakt h1 {
+    padding-top: 30px;
+    padding-left: 20px;
+    font-size: 35px;
+    display: block;
+    padding-bottom: 20px;
+    text-shadow: 2px 2px 3px black;
+}

@@ -14,41 +14,63 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="public/css/styl.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/styleKartonaz.css">
+    <link rel="stylesheet" href="public/css/styleKontakt.css">
+    <link rel="stylesheet" href="public/css/stylePrenajom.css">
+    <link rel="stylesheet" href="public/css/styleZ.css">
     <script src="public/js/script.js"></script>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-light">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="?c=home">
-            <img src="public/images/vaiicko_logo.png" title="<?= \App\Config\Configuration::APP_NAME ?>"
-                 title="<?= \App\Config\Configuration::APP_NAME ?>">
-        </a>
-        <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="?c=home&a=contact">Kontakt</a>
-            </li>
-        </ul>
-        <?php if ($auth->isLogged()) { ?>
+    <div style = "background-color: rgb(10, 149, 95); color: white; text-align: right;">
+    <?php if ($auth->isLogged()) { ?>
             <span class="navbar-text">Prihlásený používateľ: <b><?= $auth->getLoggedUserName() ?></b></span>
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto container">
                 <li class="nav-item">
                     <a class="nav-link" href="?c=auth&a=logout">Odhlásenie</a>
                 </li>
             </ul>
         <?php } else { ?>
-            <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
+            <ul class="navbar-nav ms-auto container" >
+                <li class="nav-item ">
                     <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
                 </li>
             </ul>
         <?php } ?>
     </div>
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="?c=home">
+    <img src="public/images/zdruzena-logo.png" style = "height: 50px; width: auto;" title="<?= \App\Config\Configuration::APP_NAME ?>"
+                 title="<?= \App\Config\Configuration::APP_NAME ?>">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=home&a=kartonaz">Kartonáž</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=home&a=prenajom">Prenájom</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=home&a=zoszp">Zamestnávanie občanov so ZP</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=home&a=contact">Kontakt</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </nav>
-<div class="container-fluid mt-3">
+<div class="">
     <div class="web-content">
         <?= $contentHTML ?>
     </div>
 </div>
 </body>
 </html>
+

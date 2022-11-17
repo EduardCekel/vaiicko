@@ -3,15 +3,16 @@
 namespace App\Config;
 
 use App\Auth\DummyAuthenticator;
-
+//Vaííčko MVC FW
 /**
  * Class Configuration
  * Main configuration for the application
  * @package App\Config
  */
+
 class Configuration
 {
-    public const APP_NAME = 'Vaííčko MVC FW';
+    public const APP_NAME = 'Zdruzena';
     public const FW_VERSION = '2.0';
 
     public const DB_HOST = 'localhost';  // change to db, if docker you use docker
