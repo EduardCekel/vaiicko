@@ -23,7 +23,12 @@ class PostsController extends AControllerBase
     public function delete()
     {
         $post = Post::getOne($this->request()->getValue('id'));
-        $post->delete();
+        $userHelp = User::getAll('id = ?', [$post->getId_user()]);
+        $userLogged = User::getAll('email = ?', [$_SESSION['user']]);
+        if ($userHelp[0]->getId() == $userLogged[0]->getId() || $userLogged[0]->getEmail() == "cekel1@stud.uniza.sk")
+        {
+            $post->delete();
+        }
 
         return $this->redirect("?c=posts");
     }
@@ -34,6 +39,7 @@ class PostsController extends AControllerBase
      */
     public function zobrazOkno()
     {
+        
         $post = Post::getOne($this->request()->getValue('id'));
         $_SESSION['uprav'] = $post->getId();
         return $this->redirect("?c=posts");

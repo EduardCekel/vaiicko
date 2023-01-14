@@ -35,16 +35,6 @@ class OrdersController extends AControllerBase
      * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
      * @throws \Exception
      */
-    public function getNameProduct(): String
-    {
-        $product = Order::getOne($this->request()->getValue('id'));
-        $prodName = Product::getOne($product->product());
-        return $prodName->getName();
-    }
-    /**
-     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
-     * @throws \Exception
-     */
     public function objednat(): Response
     {
         $formData = $this->app->getRequest()->getPost();
@@ -66,6 +56,27 @@ class OrdersController extends AControllerBase
     {
         $_SESSION['zobraz'] = $this->request()->getValue('id');
         return $this->redirect('?c=orders&a=admin');
+    }
+
+    /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
+    public function skry(): Response
+    {
+        unset($_SESSION['zobraz']);
+        return $this->redirect('?c=orders&a=admin');
+    }
+
+    /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
+    public function delete()
+    {
+        $post = Order::getOne($this->request()->getValue('id'));
+        $post->delete();
+        return $this->redirect("?c=orders&a=admin");
     }
     
 }

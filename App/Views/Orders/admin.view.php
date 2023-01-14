@@ -1,6 +1,9 @@
 <?php
 
 use App\Models\User;
+use App\Models\Order;
+use App\Models\Product;
+use App\Models\Location;
 
 /** @var Array $data */
 /** @var \App\Core\IAuthenticator $auth */
@@ -8,38 +11,59 @@ use App\Models\User;
 
 ?>
 
-<table class="table container mt-5 mb-5">
-    <thead>
-        <tr >
-        <th  scope="col">č. objednávky</th>
-        <th  scope="col">Dátum prijatia objednávky</th>
-        <th scope="col">Meno zákazníka</th>
-        <th scope="col"> </th>
-        </tr>
-    </thead>
-    <tbody>
-        
+<div class="col-8 container mt-5 mb-5 offset-2 " style="font-size: 17px;">
+    <div class = "row" style = "height: 25px; font-weight: bold;">
+        <div class="col-2">č. objednávky</div>
+        <div class="col-3">Dátum prijatia objednávky</div>
+        <div class="col-2">Meno zákazníka</div>
+        <div class="col-3"> </div>
+        <div class="col-2"> </div>
+    </div>  
+    <hr style="margin-bottom: 20px;">      
         <?php 
         $cislo = 1;
         foreach ($data['data'] as $formular)
             { ?>
             <?php $zakaz = User::getOne($formular->getId_user()); ?>
-            <tr>
-            <th class = "post"> <?php echo $cislo; ?></th>
-            <td> <?php echo $formular->getDatum();?>  </td>
-            <td> <?php echo $zakaz->getMeno()," ",$zakaz->getPriezvisko();?>  </td>
-            <td> <a href="?c=orders&a=zobraz&id=<?= $formular->getId() ?>" class="btn btn-info">Zobraziť detaily</a> 
-            </td> 
+            <div class="row" style="height: 80px;">
+            <div class="col-2"><b> <?php echo $cislo; ?> </b></div>
+            <div class="col-3"> <?php echo $formular->getDatum();?>  </div>
+            <div class="col-2"> <?php echo $zakaz->getMeno()," ",$zakaz->getPriezvisko();?>  </div>
+            <div class="col-3"> <a href="?c=orders&a=zobraz&id=<?= $formular->getId() ?>" class="btn btn-info">Zobraziť detaily</a> </div> 
+            <div class="col-2"> <a href="?c=orders&a=delete&id=<?= $formular->getId() ?>" class="btn btn-danger">Odstraniť</a> 
+            </div> 
+            <hr style="margin: 0;">
             <?php  $cislo++; 
             ?>
-            </tr>
+            </div>
         <?php if (isset($_SESSION['zobraz']) && $_SESSION['zobraz'] == $formular->getId())
-            { ?> <tr> <td> <?php
-                echo $_SESSION['zobraz'];
-                unset($_SESSION['zobraz']);
-                ?></td> </tr> <?php
+            { 
+                $product = Order::getOne( $_SESSION['zobraz']);
+                $prodName = Product::getOne($product->getProduct());  
+                $loc = Location::getAll('id_user = ?',[$formular->getId_user()]);  
+            ?> 
+            <div class="offset-2 col-7 mt-3 mb-5">
+                <div class="card">
+                <div class="card-body post">
+                    <h5 class="card-title">Objednávka č.<?php 
+                        echo $cislo-1;
+                    ?></h5>
+                    <p class="card-text">
+                        <b>Meno zákazníka:</b> <?php echo $zakaz->getMeno()," ",$zakaz->getPriezvisko(); ?>
+                        <br><b>Dátum objednania:</b> <?= $formular->getDatum() ?>
+                        <br><b>Adresa doručenia:</b> <?= $loc[0]->getAdresa().", 0".$loc[0]->getPsc()." ".$loc[0]->getMesto() ?>
+                        <br><b>Názov produktu:</b> <?= $prodName->getName() ?>
+                        <br><b>Počet kusov:</b> <?= $product->getSizes() ?>
+                    </p>
+                    <div style="display: flex; justify-content: flex-end">
+                    <a href="?c=orders&a=skry" class="btn btn-danger">Zavriet</a>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <hr style="margin-bottom: 20px;">
+            <?php
             }
         } ?>
-    </tbody>
-</table>
+    </div>
 
