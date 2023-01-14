@@ -3,6 +3,7 @@
 namespace App\Auth;
 
 use App\Core\IAuthenticator;
+use App\Models\User;
 
 /**
  * Class DummyAuthenticator
@@ -30,13 +31,25 @@ class DummyAuthenticator implements IAuthenticator
      * @return bool
      * @throws \Exception
      */
-    function login($login, $password): bool
+    function login($email, $password): bool
     {
-        if ($login == self::LOGIN && password_verify($password, self::PASSWORD_HASH)) {
-            $_SESSION['user'] = self::USERNAME;
+        //&& password_verify($password, $loginHelp[0].getPassword() hashovanie
+        $loginHelp = User::getAll('email = ?',[$email]);
+        if ( $loginHelp != null && password_verify($password, $loginHelp[0]->getHeslo())) {
+            $_SESSION['user'] = $loginHelp[0]->getEmail();
             return true;
         } else {
             return false;
+        }
+    }
+
+    function registr($email): bool
+    {
+        $loginHelp = User::getAll('email = ?',[$email]);
+        if ( $loginHelp != null ) {
+            return false;
+        } else {
+            return true;
         }
     }
 
@@ -58,7 +71,19 @@ class DummyAuthenticator implements IAuthenticator
     function getLoggedUserName(): string
     {
 
-        return isset($_SESSION['user']) ? $_SESSION['user'] : throw new \Exception("User not logged in");
+        //return isset($_SESSION['user']) ? $_SESSION['user'] : throw new \Exception("User not logged in");
+        $meno = User::getAll('email = ?', [$_SESSION['user']]);
+        return $meno[0]->getMeno();
+    }
+
+    /**
+     * Get the context of the logged-in user
+     * @return bool
+     */
+    function isLoggedAdmin(): bool
+    {
+        // dokoncit
+        return ($_SESSION['user'] == "cekel1@stud.uniza.sk" ? true : false);
     }
 
     /**
@@ -83,8 +108,9 @@ class DummyAuthenticator implements IAuthenticator
      * Return the id of the logged-in user
      * @return mixed
      */
-    function getLoggedUserId(): mixed
+    function getLoggedUserId(): int
     {
-        return $_SESSION['user'];
+        $idU = User::getAll('email = ?', [$_SESSION['user']]);
+        return $idU[0]->getId();
     }
 }

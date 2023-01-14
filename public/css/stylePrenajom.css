@@ -1,9 +1,9 @@
-main  div.uvodP {
+div  div.uvodP {
     background-color: rgb(10, 149, 95);
     color: whitesmoke;
 }
 
-main div.uvodP h1 {
+div div.uvodP h1 {
     padding-top: 30px;
     padding-left: 20px;
     font-size: 35px;
@@ -12,11 +12,11 @@ main div.uvodP h1 {
     text-shadow: 2px 2px 3px black;
 }
 
-main div.uvodP {
+div div.uvodP {
     padding-bottom: 40px;
 }
 
-main div.uvodP h2 {
+div div.uvodP h2 {
     font-size: 25px;
     padding-left: 20px;
     width: 100%;

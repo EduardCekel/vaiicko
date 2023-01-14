@@ -7,3 +7,8 @@
         </div>
     </div>
 </div>
+
+<p> <?php
+$premenna = password_hash("agagag", PASSWORD_DEFAULT);
+echo $premenna; ?> </p>
+<p> <?php echo password_verify("adadad", $premenna); // vypise mi to true, ak sa helsa zhoduje ?> </p> 

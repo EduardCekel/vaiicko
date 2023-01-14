@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Models\Formular;
 
 /**
  * Class HomeController
@@ -41,8 +42,8 @@ class HomeController extends AControllerBase
     }
 
     /**
-     * Example of an action accessible without authorization
-     * @return \App\Core\Responses\ViewResponse
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
      */
     public function kartonaz(): Response
     {
@@ -63,6 +64,15 @@ class HomeController extends AControllerBase
      * @return \App\Core\Responses\ViewResponse
      */
     public function zoszp(): Response
+    {
+        return $this->html();
+    }
+    
+    /**
+     * Example of an action accessible without authorization
+     * @return \App\Core\Responses\ViewResponse
+     */
+    public function users(): Response
     {
         return $this->html();
     }

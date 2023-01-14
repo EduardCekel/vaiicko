@@ -36,6 +36,9 @@
                 <li class="nav-item ">
                     <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
                 </li>
+                <li class="nav-item ">
+                    <a class="nav-link" href="?c=auth&a=registr">Registracia</a>
+                </li>
             </ul>
         <?php } ?>
     </div>
@@ -60,8 +63,24 @@
           <a class="nav-link" href="?c=home&a=zoszp">Zamestnávanie občanov so ZP</a>
         </li>
         <li class="nav-item me-4">
-          <a class="nav-link" href="?c=home&a=contact">Kontakt</a>
+          <a class="nav-link" href="?c=posts&a=index">Recenzie od zákazníkov</a>
         </li>
+        <?php if ($auth->isLogged() && $auth->isLoggedAdmin()) { ?>
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=users&a=index">Pouzivatelia</a>
+        </li>
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=orders&a=admin">Objednavky</a>
+        </li>
+        <?php } elseif ($auth->isLogged())
+        {
+          ?>
+        <li class="nav-item me-4">
+          <a class="nav-link" href="?c=orders&a=index">Objednat</a>
+        </li>
+          <?php
+        }
+        ?>
       </ul>
     </div>
   </div>
