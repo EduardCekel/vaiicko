@@ -4,6 +4,7 @@ namespace App\Auth;
 
 use App\Core\IAuthenticator;
 use App\Models\User;
+use App\Models\Location;
 
 /**
  * Class DummyAuthenticator
@@ -77,6 +78,18 @@ class DummyAuthenticator implements IAuthenticator
     }
 
     /**
+     * Get the name of the logged-in user
+     * @return string
+     */
+    function getLoggedUserLastName(): string
+    {
+
+        //return isset($_SESSION['user']) ? $_SESSION['user'] : throw new \Exception("User not logged in");
+        $meno = User::getAll('email = ?', [$_SESSION['user']]);
+        return $meno[0]->getPriezvisko();
+    }
+
+    /**
      * Get the context of the logged-in user
      * @return bool
      */
@@ -112,5 +125,28 @@ class DummyAuthenticator implements IAuthenticator
     {
         $idU = User::getAll('email = ?', [$_SESSION['user']]);
         return $idU[0]->getId();
+    }
+
+    /**
+     * Return a context of logged user, e.g. user class instance
+     * @return int
+     */
+    function getLoggedUserTel(): int
+    {
+        $idU = User::getAll('email = ?', [$_SESSION['user']]);
+        $loc = Location::getAll('id_user = ?', [$idU[0]->getId()]);
+        return $loc[0]->getTel();
+    }
+
+    /**
+     * Return a context of logged user, e.g. user class instance
+     * @return int
+     */
+    function getLoggedUserAddress(): string
+    {
+        $idU = User::getAll('email = ?', [$_SESSION['user']]);
+        $loc = Location::getAll('id_user = ?', [$idU[0]->getId()]);
+        $address = $loc[0]->getAdresa().", 0".$loc[0]->getPsc().", ".$loc[0]->getMesto();
+        return $address;
     }
 }

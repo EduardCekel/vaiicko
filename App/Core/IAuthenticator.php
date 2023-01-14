@@ -42,6 +42,18 @@ interface IAuthenticator
     function getLoggedUserContext(): mixed;
 
     /**
+     * Return a context of logged user, e.g. user class instance
+     * @return int
+     */
+    function getLoggedUserTel(): int;
+
+    /**
+     * Return a context of logged user, e.g. user class instance
+     * @return int
+     */
+    function getLoggedUserAddress(): string;
+
+    /**
      * Return, if a user is logged or not
      * @return bool
      */

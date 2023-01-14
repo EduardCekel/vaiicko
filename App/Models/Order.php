@@ -9,9 +9,9 @@ class Order extends Model
 {
     protected ?int $id = 0;
     protected ?int $id_user = 0;
-    protected ?string $datum;
-    protected ?string $product = "";
-    protected ?string $sizes = "";
+    protected ?string $datum = "";
+    protected ?int $product = 0;
+    protected ?int $sizes = 0;
 
       /**
      * @return int|null
@@ -63,33 +63,33 @@ class Order extends Model
     }
     /////
     /**
-     * @return string|null
+     * @return int|null
      */
-    public function getProduct(): ?string
+    public function getProduct(): ?int
     {
         return $this->product;
     }
 
     /**
-     * @param string|null $product
+     * @param int|null $product
      */
-    public function setProduct(?string $product): void
+    public function setProduct(?int $product): void
     {
         $this->product = $product;
     }
     //
     /**
-     * @return string|null
+     * @return int|null
      */
-    public function getSizes(): ?string
+    public function getSizes(): ?int
     {
         return $this->sizes;
     }
 
     /**
-     * @param string|null $sizes
+     * @param int|null $sizes
      */
-    public function setSizes(?string $sizes): void
+    public function setSizes(?int $sizes): void
     {
         $this->sizes = $sizes;
     }

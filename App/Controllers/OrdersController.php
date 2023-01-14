@@ -7,6 +7,7 @@ use App\Core\Responses\Response;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Order;
+use App\Models\Product;
 
 class OrdersController extends AControllerBase
 {
@@ -25,6 +26,46 @@ class OrdersController extends AControllerBase
      */
     public function admin(): Response
     {
-        return $this->html();
+        return $this->html([
+            'data' => Order::getAll()
+        ]);
     }
+
+    /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
+    public function getNameProduct(): String
+    {
+        $product = Order::getOne($this->request()->getValue('id'));
+        $prodName = Product::getOne($product->product());
+        return $prodName->getName();
+    }
+    /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
+    public function objednat(): Response
+    {
+        $formData = $this->app->getRequest()->getPost();
+        $idU = User::getAll('email = ?', [$_SESSION['user']]);
+        $order = new Order();
+        $order->setId_user($idU[0]->getId());
+        $order->setDatum(date("m.d.Y"));
+        $order->setSizes($formData['kusy']);
+        $order->setProduct($formData['vyberKrabice']);
+        $order->save();
+        return $this->redirect('?c=orders&a=index');
+    }
+
+    /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
+    public function zobraz(): Response
+    {
+        $_SESSION['zobraz'] = $this->request()->getValue('id');
+        return $this->redirect('?c=orders&a=admin');
+    }
+    
 }

@@ -111,3 +111,11 @@ footer div.copyright {
     font-size: 10px;
     text-align: center;
 }
+
+.objednavkyForm {
+    margin-top: 30px; 
+    background-color: rgb(229,250,236); 
+    padding-top: 30px; 
+    padding-bottom: 30px;
+
+}
