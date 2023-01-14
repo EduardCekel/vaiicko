@@ -19,9 +19,16 @@ class UsersController extends AControllerBase
      */
     public function index(): Response
     {
-        return $this->html([
-            'data' => User::getAll()
-        ]);
+        return $this->html(['data' => User::getAll()]);
+    }
+
+     /**
+     * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+     * @throws \Exception
+     */
+    public function profil(): Response
+    {
+        return $this->html();
     }
 
     public function login()
@@ -56,5 +63,64 @@ class UsersController extends AControllerBase
         return $this->redirect("?c=users");
     }
 
+    /**
+    * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+    * @throws \Exception
+    */
+    public function zmenaHesla()
+    {
+        $_SESSION['heslo'] = "1";
+        return $this->redirect("?c=users&a=profil");
+    }
+
+    /**
+    * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+    * @throws \Exception
+    */
+    public function potvrdZmenuHesla(): Response
+    {
+        $data = null;
+        $formData = $this->app->getRequest()->getPost();
+        if ($formData['heslo'] != $formData['heslo2'])
+        {
+            $data = ['message' => 'Hesla sa nezdhoduju!'];
+            return $this->html($data, "profil");
+        }    
+        unset($_SESSION['heslo']);
+        $user = User::getAll('email = ?', [$_SESSION['user']]);
+        $user[0]->setHeslo(password_hash( $formData['heslo'], PASSWORD_DEFAULT));
+        $user[0]->save();
+        return $this->html($data,"profil");
+    }
+    
+
+    /**
+    * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+    * @throws \Exception
+    */
+    public function zmenaAdresy()
+    {
+        $_SESSION['adresa'] = "1";
+        return $this->redirect("?c=users&a=profil");
+    }
+
+    /**
+    * @return \App\Core\Responses\Response|\App\Core\Responses\ViewResponse
+    * @throws \Exception
+    */
+    public function potvrdZmenuAdresy()
+    {
+        unset($_SESSION['adresa']);
+        $formData = $this->app->getRequest()->getPost();
+        $user = User::getAll('email = ?', [$_SESSION['user']]);
+        $loc = new Location();
+        $loc->setId_user($user[0]->getId());
+        $loc->setAdresa($formData['adresa']);
+        $loc->setMesto($formData['mesto']);
+        $loc->setPsc($formData['psc']);
+        $loc->setTel($formData['tel']);
+        $loc->save();
+        return $this->redirect("?c=users&a=profil");
+    } 
 
 }

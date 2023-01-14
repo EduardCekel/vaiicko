@@ -4,6 +4,9 @@ $layout = 'auth';
 /** @var \App\Core\IAuthenticator $auth */
 /** @var \App\Models\User $user */
 ?>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<a href="?c=home&a=index" style="color: rgb(0,100,0);"> <i class='far fa-arrow-alt-circle-left' style='font-size:30px'></i></a> 
+
 <div class="container">
     <div class="row">
         <div class="col-sm-9 col-md-7 col-lg-5 mx-auto">

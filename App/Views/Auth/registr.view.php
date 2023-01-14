@@ -3,6 +3,8 @@ $layout = 'auth';
 /** @var Array $data */
 
 ?>
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<a href="?c=home&a=index" style="color: rgb(0,100,0);"> <i class='far fa-arrow-alt-circle-left' style='font-size:30px'></i></a> 
 
 <div class="container">
     <div class="row">

@@ -21,25 +21,31 @@
     <link rel="stylesheet" href="public/css/stylePrenajom.css">
     <link rel="stylesheet" href="public/css/styleZ.css">
     <script src="public/js/script.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
-    <div style = "background-color: rgb(10, 149, 95); color: white; text-align: right;">
+    <div style = "background-color: rgb(10, 149, 95); color: white; height: 25px;">
     <?php if ($auth->isLogged()) { ?>
-            <span class="navbar-text">Prihlásený používateľ: <b><?= $auth->getLoggedUserName() ?></b></span>
-            <ul class="navbar-nav ms-auto container">
-                <li class="nav-item">
-                    <a class="nav-link" href="?c=auth&a=logout">Odhlásenie</a>
-                </li>
-            </ul>
+        <div class="row" style="margin-left: 10px;">
+          <div class = "col-2">
+             Prihlaseny používateľ: <?= $auth->getLoggedUserName() ?>
+          </div>
+          <div class = "col-1 offset-8">
+            <a class="nav-link" href="?c=users&a=profil">Profil</a>
+          </div>
+          <div class = "col-1">
+            <a class="nav-link" href="?c=auth&a=logout">Odhlásenie</a>
+          </div>
+        </div>
         <?php } else { ?>
-            <ul class="navbar-nav ms-auto container" >
-                <li class="nav-item ">
-                    <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
-                </li>
-                <li class="nav-item ">
-                    <a class="nav-link" href="?c=auth&a=registr">Registracia</a>
-                </li>
-            </ul>
+          <div class="row ">
+            <div class="col-1 offset-10">
+              <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
+            </div>
+            <div class="col-1">
+              <a class="nav-link" href="?c=auth&a=registr">Registracia</a>
+            </div>
+          </div>
         <?php } ?>
     </div>
 <nav class="navbar navbar-expand-lg bg-light">

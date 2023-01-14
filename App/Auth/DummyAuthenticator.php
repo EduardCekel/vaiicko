@@ -135,7 +135,12 @@ class DummyAuthenticator implements IAuthenticator
     {
         $idU = User::getAll('email = ?', [$_SESSION['user']]);
         $loc = Location::getAll('id_user = ?', [$idU[0]->getId()]);
-        return $loc[0]->getTel();
+        if ($loc != null)
+        {
+            return $loc[0]->getTel();
+        } else {
+            return 0;
+        }   
     }
 
     /**
@@ -146,7 +151,12 @@ class DummyAuthenticator implements IAuthenticator
     {
         $idU = User::getAll('email = ?', [$_SESSION['user']]);
         $loc = Location::getAll('id_user = ?', [$idU[0]->getId()]);
-        $address = $loc[0]->getAdresa().", 0".$loc[0]->getPsc().", ".$loc[0]->getMesto();
-        return $address;
+        if ($loc != null)
+        {
+            $address = $loc[0]->getAdresa().", 0".$loc[0]->getPsc()." ".$loc[0]->getMesto();
+            return $address;
+        } else {
+            return "";
+        }
     }
 }

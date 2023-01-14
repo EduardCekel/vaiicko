@@ -37,7 +37,7 @@ use App\Models\User;
         <h5 class="card-title"><?php 
 
         $user = User::getOne($formular->getId_user());
-        echo $user->getMeno(); 
+        echo $user->getMeno()." ".$user->getPriezvisko(); 
         ?></h5>
         <p class="card-text"><?php echo $formular->getPost(); ?></p>
       </div>
