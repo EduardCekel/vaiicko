@@ -11,12 +11,12 @@ use App\Models\Location;
 
 ?>
 
-<div class="col-8 container mt-5 mb-5 offset-2 " style="font-size: 17px;" id="oznamObj">
-    <div class = "row" style = "height: 25px; font-weight: bold;">
-        <div class="col-2">č. objednávky</div>
+<div class="col-8 container mt-5 mb-5  offset-2" style="font-size: 100%;" id="oznamObj">
+    <div class = "row" style = "height: 20%; font-weight: bold;">
+        <div class="col-1">ČO</div>
         <div class="col-3">Dátum prijatia objednávky</div>
-        <div class="col-2">Meno zákazníka</div>
-        <div class="col-3"> </div>
+        <div class="col-3">Meno zákazníka</div>
+        <div class="col-2"> </div>
         <div class="col-2"> </div>
     </div>  
     <hr style="margin-bottom: 20px;">      
@@ -26,10 +26,10 @@ use App\Models\Location;
             { ?>
             <?php $zakaz = User::getOne($formular->getId_user()); ?>
             <div class="row" style="height: 80px;">
-            <div class="col-2"><b> <?php echo $cislo; ?> </b></div>
+            <div class="col-1"><b> <?php echo $cislo; ?> </b></div>
             <div class="col-3"> <?php echo $formular->getDatum();?>  </div>
-            <div class="col-2"> <?php echo $zakaz->getMeno()," ",$zakaz->getPriezvisko();?>  </div>
-            <div class="col-3"> <a href="?c=orders&a=zobraz&id=<?= $formular->getId() ?>" class="btn btn-info">Zobraziť detaily</a> </div> 
+            <div class="col-3"> <?php echo $zakaz->getMeno()," ",$zakaz->getPriezvisko();?>  </div>
+            <div class="col-2"> <a href="?c=orders&a=zobraz&id=<?= $formular->getId() ?>" class="btn btn-info">Detaily</a> </div> 
             <div class="col-2"> <a href="?c=orders&a=delete&id=<?= $formular->getId() ?>" class="btn btn-danger">Odstraniť</a> 
             </div> 
             <hr style="margin: 0;">

@@ -62,7 +62,7 @@ class NewObj
                 link.style.height = "80px";
 
                 let num = document.createElement("div");
-                num.className = "col-2";
+                num.className = "col-1";
                 num.innerText = pocetObjednavok;
                 num.style.fontWeight = "bold";
                 link.appendChild(num);
@@ -73,7 +73,7 @@ class NewObj
                 link.appendChild(datum);
 
                 let menoPriezvisko = document.createElement("div");
-                menoPriezvisko.className = "col-2";
+                menoPriezvisko.className = "col-3";
 
                 dataUsers.users.forEach((user) => {
                     if (user.id == data.orders[pocetObjednavok - 1].id_user)
@@ -86,13 +86,13 @@ class NewObj
                 link.appendChild(menoPriezvisko);
 
                 let divZobraz = document.createElement("div");
-                divZobraz.className = "col-3";
+                divZobraz.className = "col-2";
 
                 let butZobraz = document.createElement("a");
                 text = "?c=orders&a=zobraz&id="+data.orders[pocetObjednavok - 1].id
                 butZobraz.href = text;
                 butZobraz.className = "btn btn-info";
-                butZobraz.innerText = "Zobraziť detaily";
+                butZobraz.innerText = "Detaily";
                 divZobraz.appendChild(butZobraz);
                 link.appendChild(divZobraz);
 

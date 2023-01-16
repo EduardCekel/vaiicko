@@ -8,13 +8,12 @@
     <title><?= \App\Config\Configuration::APP_NAME ?></title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
-            crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
             integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
             crossorigin="anonymous"></script>
-            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+            crossorigin="anonymous"></script>
     <link rel="stylesheet" href="public/css/style.css">
     <link rel="stylesheet" href="public/css/styleKartonaz.css">
     <link rel="stylesheet" href="public/css/styleKontakt.css">
@@ -24,28 +23,28 @@
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
-    <div style = "background-color: rgb(10, 149, 95); color: white; height: 25px;">
+    <div style = "background-color: rgb(10, 149, 95); color: white; height: 37px;">
     <?php if ($auth->isLogged()) { ?>
-        <div class="row" style="margin-left: 10px;">
-          <div class = "col-2">
-             Prihlaseny používateľ: <?= $auth->getLoggedUserName() ?>
-          </div>
-          <div class = "col-1 offset-8">
-            <a class="nav-link" href="?c=users&a=profil">Profil</a>
-          </div>
-          <div class = "col-1">
-            <a class="nav-link" href="?c=auth&a=logout">Odhlásenie</a>
-          </div>
-        </div>
+
+      <div class="dropdown d-flex flex-column align-items-end">
+        <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        Prihlaseny používateľ: <?= $auth->getLoggedUserName() ?>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="?c=users&a=profil">Profil</a></li>
+          <li><a class="dropdown-item" href="?c=auth&a=logout">Odhlásenie</a></li>
+        </ul>
+      </div>       
         <?php } else { ?>
-          <div class="row ">
-            <div class="col-1 offset-10">
-              <a class="nav-link" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
-            </div>
-            <div class="col-1">
-              <a class="nav-link" href="?c=auth&a=registr">Registracia</a>
-            </div>
-          </div>
+        <div class="dropdown d-flex flex-column align-items-end">
+          <button class="btn text-white dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          používateľ
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="<?= \App\Config\Configuration::LOGIN_URL ?>">Prihlásenie</a>
+            <li><a class="dropdown-item" href="?c=auth&a=registr">Registracia</a>
+          </ul>
+        </div>  
         <?php } ?>
     </div>
 <nav class="navbar navbar-expand-lg bg-light">

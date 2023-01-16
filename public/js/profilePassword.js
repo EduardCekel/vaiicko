@@ -49,10 +49,21 @@ class Password
             if (adresa.value == "" || psc.value == "" || mesto.value == "" || tel.value == "")
             {
                 document.getElementById("vypis").innerText = "";
-            }else if (psc.value.length != 5)
+            } else if ( psc.value.length != 5 )
             {
-                document.getElementById("vypis").innerText = "PSČ má 5 čísel!";
-            } else {
+                document.getElementById("vypis").innerText = "PSČ obsahuje 5 číslic!";
+            } else if (isNaN(psc.value))
+            {
+                document.getElementById("vypis").innerText = "PSČ musí byť číslo!";
+            } else if (tel.value.length != 10)
+            {
+                document.getElementById("vypis").innerText = "Tel. číslo musí obsahovať 10 číslic!";
+            } else if (isNaN(tel.value))
+            {
+                document.getElementById("vypis").innerText = "Tel. číslo musí byť číslo!";
+            }
+            else {
+                document.getElementById("vypis").innerText = "";
                 document.getElementById("submitZmena").disabled  = false;
             }
         }
