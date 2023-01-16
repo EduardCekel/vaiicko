@@ -11,7 +11,7 @@ use App\Models\Location;
 
 ?>
 
-<div class="col-8 container mt-5 mb-5 offset-2 " style="font-size: 17px;">
+<div class="col-8 container mt-5 mb-5 offset-2 " style="font-size: 17px;" id="oznamObj">
     <div class = "row" style = "height: 25px; font-weight: bold;">
         <div class="col-2">č. objednávky</div>
         <div class="col-3">Dátum prijatia objednávky</div>
@@ -66,4 +66,6 @@ use App\Models\Location;
             }
         } ?>
     </div>
+
+<script src="public/js/adminOrders.js"></script>
 

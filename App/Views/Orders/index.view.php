@@ -92,7 +92,7 @@ if ($loc != null)
     <div style="height: 50vh;"> </div>
     <?php
 } ?>
-
+<script src="public/js/script.js"></script>
 <footer style = "margin-top: 10%;">
     <div class = "container" >
         <ul>

@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="public/css/styleKontakt.css">
     <link rel="stylesheet" href="public/css/stylePrenajom.css">
     <link rel="stylesheet" href="public/css/styleZ.css">
-    <script src="public/js/script.js"></script>
+   
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </head>
 <body>
@@ -51,8 +51,7 @@
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
     <a class="navbar-brand" href="?c=home">
-    <img src="public/images/zdruzena-logo.png" style = "height: 50px; width: auto;" title="<?= \App\Config\Configuration::APP_NAME ?>"
-                 title="<?= \App\Config\Configuration::APP_NAME ?>">
+    <img src="public/images/zdruzena-logo.png" style = "height: 50px; width: auto;" title="<?= \App\Config\Configuration::APP_NAME ?>">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>

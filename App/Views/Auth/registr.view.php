@@ -47,3 +47,5 @@ $layout = 'auth';
         </div>
     </div>
 </div>
+
+<script src="public/js/registration.js"></script>

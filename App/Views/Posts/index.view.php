@@ -62,7 +62,7 @@ use App\Models\User;
       <label for="exampleFormControlTextarea1">Zadajte text správy</label>
         <textarea class="form-control" name="postNew" id="exampleFormControlTextarea1" rows="4"></textarea>
     </div>
-        <input class="offset-2 mt-1 btn btn-light" type="submit" name="newPost" value="Odoslať">
+        <input class="offset-2 mt-1 btn btn-light" type="submit" name="newPost" value="Odoslať" id="buttonNewPost">
   </form>
     <?php } ?>
 

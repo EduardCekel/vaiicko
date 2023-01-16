@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Core\Responses\Response;
+use App\Core\Responses\JsonResponse;
 use App\Models\Post;
 use App\Models\User;
 use App\Models\Order;
@@ -41,6 +42,7 @@ class OrdersController extends AControllerBase
      */
     public function objednat(): Response
     {
+        echo "1";
         $formData = $this->app->getRequest()->getPost();
         $idU = User::getAll('email = ?', [$_SESSION['user']]);
         $order = new Order();
@@ -49,6 +51,7 @@ class OrdersController extends AControllerBase
         $order->setSizes($formData['kusy']);
         $order->setProduct($formData['vyberKrabice']);
         $order->save();
+        echo "2";
         return $this->redirect('?c=orders&a=index');
     }
 
@@ -81,6 +84,20 @@ class OrdersController extends AControllerBase
         $post = Order::getOne($this->request()->getValue('id'));
         $post->delete();
         return $this->redirect("?c=orders&a=admin");
+    }
+
+    /**
+     * Vráti zoznam všetkých používateľov
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function checkObj() : JsonResponse
+    {
+        return $this->json(
+            [ 
+              'orders' =>  Order::getAll()
+            ]
+        );
     }
     
 }
