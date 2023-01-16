@@ -26,9 +26,13 @@ class OrdersController extends AControllerBase
      */
     public function admin(): Response
     {
-        return $this->html([
-            'data' => Order::getAll()
-        ]);
+        if ($_SESSION['user'] == "cekel1@stud.uniza.sk")
+        {
+            return $this->html([
+                'data' => Order::getAll()
+            ]);
+        }
+        return $this->redirect('?c=orders&a=index');
     }
 
     /**

@@ -19,7 +19,11 @@ class UsersController extends AControllerBase
      */
     public function index(): Response
     {
-        return $this->html(['data' => User::getAll()]);
+        if ($_SESSION['user'] == "cekel1@stud.uniza.sk")
+        {
+            return $this->html(['data' => User::getAll()]);
+        }
+        return $this->redirect("?c=home&a=index");
     }
 
      /**

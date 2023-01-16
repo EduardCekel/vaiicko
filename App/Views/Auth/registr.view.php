@@ -12,32 +12,33 @@ $layout = 'auth';
             <div class="card card-signin my-5">
                 <div class="card-body">
                     <h5 class="card-title text-center">Registracia</h5>
-                    <div class="text-center text-danger mb-3">
+                    <div class="text-center text-danger mb-3" id = "vypisReg">
                         <?= @$data['message'] ?>
                     </div>
                     <form class="form-signin" method="post" action="?c=auth&a=registr">
                         <div class="form-label-group mb-3">
-                            <input name="login" type="text" id="login" class="form-control" placeholder="meno"
+                            <input name="login" type="text" id="loginReg" class="form-control" placeholder="meno"
                                    required autofocus>
                         </div>
                         <div class="form-label-group mb-3">
-                            <input name="lastName" type="text" id="lastName" class="form-control" placeholder="priezvisko"
+                            <input name="lastName" type="text" id="lastNameReg" class="form-control" placeholder="priezvisko"
                                    required autofocus>
                         </div>
                         <div class="form-label-group mb-3">
-                            <input name="email" type="email" id="email" class="form-control"
+                            <div id = "regEmail"></div>
+                            <input name="email" type="email" id="emailReg" class="form-control"
                                    placeholder="email" required>
                         </div>
                         <div class="form-label-group mb-3">
-                            <input name="password" type="password" id="password" class="form-control"
+                            <input name="password" type="password" id="passwordReg1" class="form-control"
                                    placeholder="heslo" required>
                         </div>
                         <div class="form-label-group mb-3">
-                            <input name="password2" type="password" id="password2" class="form-control"
+                            <input name="password2" type="password" id="passwordReg2" class="form-control"
                                    placeholder="heslo znova" required>
                         </div>
                         <div class="text-center">
-                            <button class="btn btn-primary" type="submit" name="submit">Registrovat
+                            <button class="btn btn-primary" type="submit" name="submit" id="buttonReg" disabled>Registrovat
                             </button>
                         </div>
                     </form>

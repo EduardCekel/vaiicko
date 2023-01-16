@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Config\Configuration;
 use App\Core\AControllerBase;
+use App\Core\Responses\JsonResponse;
 use App\Core\Responses\Response;
 use App\Models\User;
 
@@ -47,6 +48,20 @@ class AuthController extends AControllerBase
         return $this->html($data);
     }
 
+    /**
+     * Vráti zoznam všetkých používateľov
+     * @return JsonResponse
+     * @throws \Exception
+     */
+    public function regg() : JsonResponse
+    {
+        return $this->json(
+            [ 
+              'users' =>  User::getAll()
+            ]
+        );
+    }
+
     public function registr(): Response
     {
         $formData = $this->app->getRequest()->getPost();
@@ -54,30 +69,36 @@ class AuthController extends AControllerBase
         $pass = true;
         $data = null;
         if (isset($formData['submit'])) {
-            $reg = $this->app->getAuth()->registr($formData['email']);
-            if ($formData['password'] != $formData['password2'])
+            if ($formData['email'] != null && $formData['password'] != null &&  $formData['login'] != null && $formData['lastName'] != null)
             {
-                $pass = false;
-            }
-            //echo $formData['login'];
-            //echo $formData['password'];
-            if (!$reg)
-            {
-                $data = ['message' => 'Používateľ s daným emailom už existuje!'];
-            } elseif (!$pass) {
-                $data = ['message' => 'Hesla sa nezhoduju!'];
+                $reg = $this->app->getAuth()->registr($formData['email']);
+                if ($formData['password'] != $formData['password2'])
+                {
+                    $pass = false;
+                }
+                //echo $formData['login'];
+                //echo $formData['password'];
+                if (!$reg)
+                {
+                    $data = ['message' => 'Používateľ s daným emailom už existuje!'];
+                } elseif (!$pass) {
+                    $data = ['message' => 'Hesla sa nezhoduju!'];
+                } else {
+                    $user = new User();
+                    $user->setMeno($formData['login']);
+                    $user->setPriezvisko($formData['lastName']);
+                    $user->setEmail($formData['email']);
+                    $user->setHeslo(password_hash($formData['password'], PASSWORD_DEFAULT));
+                    $user->save();
+                    return $this->redirect('?c=home&a=index');
+                    //echo $formData['login']," ",$formData['lastName']," ",$formData['email']," ",$formData['password']," ";
+                    //echo password_hash($formData['password'], PASSWORD_DEFAULT);
+                }
             } else {
-                $user = new User();
-                $user->setMeno($formData['login']);
-                $user->setPriezvisko($formData['lastName']);
-                $user->setEmail($formData['email']);
-                $user->setHeslo(password_hash($formData['password'], PASSWORD_DEFAULT));
-                $user->save();
-                return $this->redirect('?c=home&a=index');
-                //echo $formData['login']," ",$formData['lastName']," ",$formData['email']," ",$formData['password']," ";
-                //echo password_hash($formData['password'], PASSWORD_DEFAULT);
+                $data = ['message' => 'Všetky údaje musia byt vyplnené!'];
+                return $this->html($data);
             }
-        }
+        }        
         return $this->html($data);
     }
 

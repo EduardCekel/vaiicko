@@ -28,8 +28,8 @@ div.galeria {
     padding-top: 25px;
 }
 
-img.prvyRiadok {
-    width: 50%;
+.galeria img.prvyRiadok {
+    width: 51%;
 }
 
 div.riadok img{

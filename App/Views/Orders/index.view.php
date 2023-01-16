@@ -12,6 +12,7 @@ if ($loc != null)
 {
 
 ?>
+<div id="objInfo"></div>
 <div class = "container objednavkyForm">
 <form method="post" action="?c=orders&a=objednat">
     <div class = "offset-1"> 
@@ -41,27 +42,27 @@ if ($loc != null)
             </div>
         </div>
         <div class="form-check" style = "margin-top: 15px;">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="exampleRadios1" value="1">
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="1" checked>
             <label class="form-check-label" for="inlineCheckbox1">Krabica veka a dno</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="exampleRadios2" value="2">
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="2">
             <label class="form-check-label" for="inlineCheckbox2">Krabica zaklápacia</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="exampleRadios3" value="3">
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="3">
             <label class="form-check-label" for="inlineCheckbox3">Krabica s rúčkou na koláče</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="exampleRadios4" value="4">
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="4">
             <label class="form-check-label" for="inlineCheckbox3">Krabica zaklápacia na tortu</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="exampleRadios5" value="5">
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="5">
             <label class="form-check-label" for="inlineCheckbox3">Krabica zaklápacia na pizzu</label>
         </div>
         <div class="form-check">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="exampleRadios6" value="6">
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="6">
             <label class="form-check-label" for="inlineCheckbox3">Krabica platónka/dno</label>
         </div>
         <div class="form-group row" style = "margin-top: 15px;">
@@ -79,7 +80,7 @@ if ($loc != null)
             </select>
             </div>
         </div>
-        <input class="btn btn-primary " type="submit" style = "margin-top: 60px;" name="objedn" value="Potvrdiť objednávku"/>
+        <input class="btn btn-primary " id="submitObjednavka" type="submit" style = "margin-top: 60px;" name="objedn" value="Potvrdiť objednávku"/>
     </div>
 </form>
 </div>
@@ -88,6 +89,7 @@ if ($loc != null)
 <?php } else {
     ?> 
     <h3 style = "color: red; margin-top: 30px;">Predtým ako si môžte objednať niektorý z našich produktov, si musíte vypniť informácie o dodacej adrese v profile!</h3>
+    <div style="height: 50vh;"> </div>
     <?php
 } ?>
 
