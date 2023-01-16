@@ -33,7 +33,6 @@
     </div>
   </div>
 
-  </main>
   <footer>
     <div class = "container">
       <ul>

@@ -29,8 +29,9 @@
             <td> <?php echo $user->getEmail();?>  </td>
             <td> <a href="?c=users&a=delete&id=<?= $user->getId() ?>" class="btn btn-danger">Zmazať</a> 
             </td> 
-            <?php  $cislo++; } ?>
             </tr>
+            <?php  $cislo++; } ?>
+            
         <?php } ?>
     </tbody>
 </table>

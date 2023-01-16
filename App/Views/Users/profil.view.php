@@ -42,24 +42,23 @@ use App\Models\Location;
     <div class="mt-4">
     <a href="?c=users&a=zmenaHesla" class="btn btn-default">Zmeniť heslo</a>
     <a href="?c=users&a=zmenaAdresy" class="btn btn-default">Zmeniť dodaciu adresu</a>
+    <div class=" text-danger mt-2" id="vypis"><?= @$data['message'] ?></div>
     </div>
     <?php 
     if (isset($_SESSION['heslo']))
-    {
-        ?> 
-        <div class=" text-danger mt-2"><?= @$data['message'] ?></div>
-        <form method="post" action="?c=users&a=potvrdZmenuHesla">
+    {   unset($_SESSION['heslo']);
+        ?>         <form method="post" action="?c=users&a=potvrdZmenuHesla">
             <div>
             <div class="col-4 mt-2">
-                <input name="heslo" type="password" id="heslo" class="form-control" placeholder="heslo" required autofocus>
+                <input name="heslo" type="password" id="heslo" class="form-control" placeholder="heslo" required>
             </div>
             <div class="col-4 mt-2">
-                <input name="heslo2" type="password" id="heslo2" class="form-control" placeholder="heslo znova" required autofocus>
+                <input name="heslo2" type="password" id="heslo2" class="form-control" placeholder="heslo znova" required>
             </div>
-            <button class="btn btn-primary mt-2" type="submit" name="submit">Zmeniť</button>
+            <button class="btn btn-primary mt-2" type="submit" id="submit">Zmeniť</button>
             </div>
         </form>
-        <?php
+        <?php 
     } elseif (isset($_SESSION['adresa']))
     {   unset($_SESSION['adresa']);
         ?> 
@@ -67,22 +66,24 @@ use App\Models\Location;
         <form method="post" action="?c=users&a=potvrdZmenuAdresy">
             <div>
             <div class="col-6 mt-2">
-                <input name="adresa" type="text" id="adresa" class="form-control" placeholder="adresa" required autofocus>
+                <input name="adresa" type="text" id="adresa" class="form-control" placeholder="adresa" required>
             </div>
             <div class="col-6 mt-2">
-                <input name="psc" type="text" id="psc" class="form-control" placeholder="PSČ" required autofocus>
+                <input name="psc" type="text" id="psc" class="form-control" placeholder="PSČ" required>
             </div>
             <div class="col-6 mt-2">
-                <input name="mesto" type="text" id="mesto" class="form-control" placeholder="mesto" required autofocus>
+                <input name="mesto" type="text" id="mesto" class="form-control" placeholder="mesto" required>
             </div>
             <div class="col-6 mt-2">
-                <input name="tel" type="text" id="tel" class="form-control" placeholder="tel. č." required autofocus>
+                <input name="tel" type="text" id="tel" class="form-control" placeholder="tel. č." required>
             </div>
-            <button class="btn btn-primary mt-2" type="submit" name="submit">Zmeniť</button>
+            <button class="btn btn-primary mt-2" type="submit" name="submit" id = "submitZmena">Zmeniť</button>
             </div>
         </form>
         <?php
     }
     ?>
 </div>
+
+<script src="public/js/profilePassword.js"></script>
 

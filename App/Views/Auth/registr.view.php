@@ -22,7 +22,7 @@ $layout = 'auth';
                         </div>
                         <div class="form-label-group mb-3">
                             <input name="lastName" type="text" id="lastNameReg" class="form-control" placeholder="priezvisko"
-                                   required autofocus>
+                                   required >
                         </div>
                         <div class="form-label-group mb-3">
                             <div id = "regEmail"></div>

@@ -36,9 +36,6 @@ var obj;
 
 document.addEventListener(
     'DOMContentLoaded', () => {
-        //rag = new Reg();
         obj = new Objednavka();
-        //poc = new Pocitaj();
-        //newobj = new NewObj();
     }, false)
 ;

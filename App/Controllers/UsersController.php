@@ -90,7 +90,6 @@ class UsersController extends AControllerBase
             $data = ['message' => 'Hesla sa nezdhoduju!'];
             return $this->html($data, "profil");
         }    
-        unset($_SESSION['heslo']);
         $user = User::getAll('email = ?', [$_SESSION['user']]);
         $user[0]->setHeslo(password_hash( $formData['heslo'], PASSWORD_DEFAULT));
         $user[0]->save();
