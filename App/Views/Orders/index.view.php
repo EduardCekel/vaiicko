@@ -42,7 +42,7 @@ if ($loc != null)
             </div>
         </div>
         <div class="form-check" style = "margin-top: 15px;">
-            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="1" checked>
+            <input class="form-check-input" type="radio" name="vyberKrabice" id="radios" value="1">
             <label class="form-check-label" for="inlineCheckbox1">Krabica veka a dno</label>
         </div>
         <div class="form-check">
