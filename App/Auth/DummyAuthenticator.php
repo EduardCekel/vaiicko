@@ -153,7 +153,7 @@ class DummyAuthenticator implements IAuthenticator
         $loc = Location::getAll('id_user = ?', [$idU[0]->getId()]);
         if ($loc != null)
         {
-            $address = $loc[0]->getAdresa().", 0".$loc[0]->getPsc()." ".$loc[0]->getMesto();
+            $address = $loc[0]->getAdresa().", ".$loc[0]->getPsc()." ".$loc[0]->getMesto();
             return $address;
         } else {
             return "";

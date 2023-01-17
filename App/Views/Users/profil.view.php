@@ -12,12 +12,12 @@ use App\Models\Location;
 <div style = "height: 30px; background-color: rgb(10, 149, 95);">
 <a href="?c=home&a=index" style="color: rgb(0,100,0);"> <i class='far fa-arrow-alt-circle-left' style='font-size:30px'></i></a> 
 </div>
-<div class="container col-7 mt-4">
+<div class="container col-6 mt-4">
     <div class="row">
-    <div class="col-3">
+    <div class="col-2">
     <img src="public/images/avatar.jpg" alt="avatar" style = "height: 200px; width: auto; border: 1px solid black; border-radius: 5px;">
     </div>
-    <div class="col-8" style="font-size: 18px; margin-top: 10px;">
+    <div class="" style="font-size: 18px; margin-top: 10px;">
         <div><b>Meno:</b> <?= $auth->getLoggedUserName();
                          ?></div>
         <div style="margin-top: 10px;"><b>Priezvisko:</b> <?= $auth->getLoggedUserLastName() ?> </div>
